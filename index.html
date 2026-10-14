@@ -1,0 +1,61 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Exemple</title><style>:root{--bg:#000000;--surface:#171b22;--ink:#e8ebf0;--ink2:#a2abba;--accent:#6fa2d6;--border:#2a303b;color-scheme:dark;}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);margin:0;
+font-family:"IBM Plex Sans",system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+padding:clamp(14px,3vw,34px)}
+.bar{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:12px}
+#home{font:600 13px ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--accent);
+background:var(--surface);border:1px solid var(--border);border-radius:9px;padding:6px 11px;cursor:pointer}
+#trail{color:var(--ink2);font:12px ui-monospace,SFMono-Regular,Menlo,monospace}
+.nav{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+.navbtn{font:600 12px ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--ink2);
+background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:6px 11px;cursor:pointer}
+.navbtn.active{color:var(--accent);border-color:var(--accent)}
+.view .back{font:600 12px ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--accent);
+background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:5px 10px;cursor:pointer;margin-bottom:10px}
+svg{width:100%;height:auto;max-width:1200px;display:block}
+.node{fill:var(--surface);stroke:var(--border);stroke-width:1.4}
+.zone{fill:none;stroke:var(--border);stroke-width:1.2;stroke-dasharray:5 5;opacity:.95}
+.ztitle{fill:var(--ink2);font-weight:700;font-size:13px}
+.nlabel{fill:var(--ink);font-weight:600;font-size:13px}
+.nsub{fill:var(--ink2);font-size:11px}
+.flow{fill:none;stroke:var(--accent);stroke-width:1.6}
+.flabel{fill:var(--ink2);font-size:11px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+.node.linked{stroke:var(--accent);stroke-width:1.9}
+.zone.linked{stroke:var(--accent);opacity:1}
+.nodelink,.zonelink{cursor:pointer}
+.nodelink:hover .node.linked,.zonelink:hover .zone.linked{stroke-width:2.4}
+.nodelink:focus,.zonelink:focus{outline:none}
+.linkcue{fill:var(--accent);font-weight:700;font-size:15px;
+font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+[hidden]{display:none!important}
+</style></head><body><div class="bar"><span id="home">&#8962; Exemple</span><span id="trail"></span></div><nav class="nav"><button class="navbtn" data-go="overview">Vue d'ensemble</button><button class="navbtn" data-go="donnees">Données</button><button class="navbtn" data-go="identite">Identité</button></nav><div class="stage"><section class="view" id="v-overview"><svg viewBox="0 0 988 442" role="img" aria-label="Vue d'ensemble" preserveAspectRatio="xMidYMid meet"><defs><marker id="arw-overview" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M2 2 L8 5 L2 8" fill="none" stroke="context-stroke" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></marker></defs><rect class="zone" x="34" y="34" width="468" height="276" rx="14"/><text class="ztitle" x="50" y="55" text-anchor="start">Cloud (région)</text><rect class="zone" x="60" y="66" width="416" height="218" rx="14"/><text class="ztitle" x="76" y="87" text-anchor="start">Namespace applicatif</text><rect class="zone" x="538" y="112" width="416" height="120" rx="14"/><text class="ztitle" x="554" y="133" text-anchor="start">Partenaires</text><path class="flow" d="M268 346 L268 253 L168 253 L168 160" marker-end="url(#arw-overview)"/><text class="flabel" x="218" y="245" text-anchor="middle">HTTPS</text><path class="flow" d="M250 129 L268 129 L268 129 L286 129" marker-end="url(#arw-overview)"/><text class="flabel" x="268" y="121" text-anchor="middle">appelle</text><path class="flow" d="M286 129 L268 129 L268 227 L250 227" marker-end="url(#arw-overview)" marker-start="url(#arw-overview)"/><text class="flabel" x="268" y="170" text-anchor="middle">récupère</text><path class="flow" d="M368 160 L368 178 L368 178 L368 196" marker-end="url(#arw-overview)"/><text class="flabel" x="368" y="170" text-anchor="middle">publie</text><path class="flow" d="M564 175 L507 175 L507 129 L450 129" marker-end="url(#arw-overview)"/><text class="flabel" x="507" y="144" text-anchor="middle">dépose</text><path class="flow" d="M350 377 L557 377 L557 175 L764 175" marker-end="url(#arw-overview)"/><text class="flabel" x="557" y="268" text-anchor="middle">authentifie</text><rect class="node" x="86" y="98" width="164" height="62" rx="11"/><text class="nlabel" x="168" y="127" text-anchor="middle">BFF</text><text class="nsub" x="168" y="144" text-anchor="middle">API façade</text><g class="nodelink" data-go="donnees" role="button" tabindex="0" aria-label="Service - voir donnees"><rect class="node linked" x="286" y="98" width="164" height="62" rx="11"/><text class="nlabel" x="368" y="127" text-anchor="middle">Service</text><text class="nsub" x="368" y="144" text-anchor="middle">métier</text><text class="linkcue" x="436" y="117" text-anchor="middle">&#8250;</text></g><rect class="node" x="86" y="196" width="164" height="62" rx="11"/><text class="nlabel" x="168" y="225" text-anchor="middle">Base</text><text class="nsub" x="168" y="242" text-anchor="middle">PostgreSQL</text><rect class="node" x="286" y="196" width="164" height="62" rx="11"/><text class="nlabel" x="368" y="225" text-anchor="middle">Bus</text><text class="nsub" x="368" y="242" text-anchor="middle">événements</text><rect class="node" x="564" y="144" width="164" height="62" rx="11"/><text class="nlabel" x="646" y="173" text-anchor="middle">Partner A</text><text class="nsub" x="646" y="190" text-anchor="middle">données</text><g class="nodelink" data-go="identite" role="button" tabindex="0" aria-label="IdP - voir identite"><rect class="node linked" x="764" y="144" width="164" height="62" rx="11"/><text class="nlabel" x="846" y="173" text-anchor="middle">IdP</text><text class="nsub" x="846" y="190" text-anchor="middle">OIDC</text><text class="linkcue" x="914" y="163" text-anchor="middle">&#8250;</text></g><rect class="node" x="186" y="346" width="164" height="62" rx="11"/><text class="nlabel" x="268" y="375" text-anchor="middle">Frontend</text><text class="nsub" x="268" y="392" text-anchor="middle">SPA</text></svg></section><section class="view" id="v-donnees" hidden><button class="back" data-back>&lsaquo; Retour</button><svg viewBox="0 0 788 344" role="img" aria-label="Données" preserveAspectRatio="xMidYMid meet"><defs><marker id="arw-donnees" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M2 2 L8 5 L2 8" fill="none" stroke="context-stroke" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></marker></defs><rect class="zone" x="34" y="34" width="468" height="276" rx="14"/><text class="ztitle" x="50" y="55" text-anchor="start">Cloud (région)</text><rect class="zone" x="60" y="66" width="416" height="218" rx="14"/><text class="ztitle" x="76" y="87" text-anchor="start">Namespace applicatif</text><rect class="zone" x="538" y="112" width="216" height="120" rx="14"/><text class="ztitle" x="554" y="133" text-anchor="start">Partenaires</text><path class="flow" d="M250 129 L268 129 L268 129 L286 129" marker-end="url(#arw-donnees)" marker-start="url(#arw-donnees)"/><text class="flabel" x="268" y="121" text-anchor="middle">récupère</text><path class="flow" d="M168 160 L168 178 L168 178 L168 196" marker-end="url(#arw-donnees)"/><text class="flabel" x="168" y="170" text-anchor="middle">publie</text><path class="flow" d="M564 175 L407 175 L407 129 L250 129" marker-end="url(#arw-donnees)"/><text class="flabel" x="407" y="144" text-anchor="middle">dépose</text><rect class="node" x="86" y="98" width="164" height="62" rx="11"/><text class="nlabel" x="168" y="127" text-anchor="middle">Service</text><text class="nsub" x="168" y="144" text-anchor="middle">métier</text><rect class="node" x="286" y="98" width="164" height="62" rx="11"/><text class="nlabel" x="368" y="127" text-anchor="middle">Base</text><text class="nsub" x="368" y="144" text-anchor="middle">PostgreSQL</text><rect class="node" x="86" y="196" width="164" height="62" rx="11"/><text class="nlabel" x="168" y="225" text-anchor="middle">Bus</text><text class="nsub" x="168" y="242" text-anchor="middle">événements</text><rect class="node" x="564" y="144" width="164" height="62" rx="11"/><text class="nlabel" x="646" y="173" text-anchor="middle">Partner A</text><text class="nsub" x="646" y="190" text-anchor="middle">données</text></svg></section><section class="view" id="v-identite" hidden><button class="back" data-back>&lsaquo; Retour</button><svg viewBox="0 0 588 344" role="img" aria-label="Identité" preserveAspectRatio="xMidYMid meet"><defs><marker id="arw-identite" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M2 2 L8 5 L2 8" fill="none" stroke="context-stroke" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></marker></defs><rect class="zone" x="34" y="34" width="268" height="178" rx="14"/><text class="ztitle" x="50" y="55" text-anchor="start">Cloud (région)</text><rect class="zone" x="60" y="66" width="216" height="120" rx="14"/><text class="ztitle" x="76" y="87" text-anchor="start">Namespace applicatif</text><rect class="zone" x="338" y="63" width="216" height="120" rx="14"/><text class="ztitle" x="354" y="84" text-anchor="start">Partenaires</text><path class="flow" d="M168 248 L168 204 L168 204 L168 160" marker-end="url(#arw-identite)"/><text class="flabel" x="168" y="196" text-anchor="middle">HTTPS</text><path class="flow" d="M250 279 L307 279 L307 126 L364 126" marker-end="url(#arw-identite)"/><text class="flabel" x="307" y="194.5" text-anchor="middle">authentifie</text><rect class="node" x="86" y="98" width="164" height="62" rx="11"/><text class="nlabel" x="168" y="127" text-anchor="middle">BFF</text><text class="nsub" x="168" y="144" text-anchor="middle">API façade</text><rect class="node" x="364" y="95" width="164" height="62" rx="11"/><text class="nlabel" x="446" y="124" text-anchor="middle">IdP</text><text class="nsub" x="446" y="141" text-anchor="middle">OIDC</text><rect class="node" x="86" y="248" width="164" height="62" rx="11"/><text class="nlabel" x="168" y="277" text-anchor="middle">Frontend</text><text class="nsub" x="168" y="294" text-anchor="middle">SPA</text></svg></section></div><script>window.LOGOS = {};</script><script>var names = {"overview": "Vue d'ensemble", "donnees": "Données", "identite": "Identité"};
+(function(){
+var cur="overview",hist=[];
+var trail=document.getElementById("trail");
+function render(id){
+  var vs=document.querySelectorAll(".view");
+  for(var i=0;i<vs.length;i++){vs[i].hidden=(vs[i].id!=="v-"+id);}
+  if(trail){trail.textContent=(id==="overview")?"":("\u203a "+(names[id]||id));}
+  cur=id;try{scrollTo(0,0);}catch(e){}
+  var gs=document.querySelectorAll("[data-go]");
+  for(var j=0;j<gs.length;j++){
+    var on=(gs[j].getAttribute("data-go")===id);
+    if(gs[j].classList){gs[j].classList.toggle("active",on);}
+  }
+}
+function go(id){if(id!==cur){hist.push(cur);}render(id);}
+function back(){render(hist.length?hist.pop():"overview");}
+window._go=go;window._back=back;
+var gs=document.querySelectorAll("[data-go]");
+for(var i=0;i<gs.length;i++){(function(b){b.addEventListener("click",function(){go(b.getAttribute("data-go"));});})(gs[i]);}
+var bk=document.querySelectorAll("[data-back]");
+for(var k=0;k<bk.length;k++){bk[k].addEventListener("click",back);}
+var home=document.getElementById("home");
+if(home){home.addEventListener("click",function(){hist=[];render("overview");});}
+try{var L=window.LOGOS||{};var im=document.querySelectorAll("image[data-logo]");
+for(var m=0;m<im.length;m++){var kk=im[m].getAttribute("data-logo");
+if(L[kk]){im[m].setAttributeNS("http://www.w3.org/1999/xlink","href",L[kk]);im[m].setAttribute("href",L[kk]);}}}catch(e){}
+render("overview");
+})();
+</script></body></html>
